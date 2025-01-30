@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="product" type="com.example.swipeassignment.datamodel.ProductItems"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:contentDescription="Product Image"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{product.image}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Product Name -->
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{product.product_name}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/productImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/productPrice"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Product Price -->
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`₹ ` + String.valueOf(product.price)}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/productName"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Product Type -->
+        <TextView
+            android:id="@+id/productType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{product.product_type}"
+            android:textSize="18sp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/productName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/productTax"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Product Tax -->
+        <TextView
+            android:id="@+id/productTax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Tax: ` + String.valueOf(product.tax) + `%`}"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintTop_toTopOf="@id/productType"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="product" type="com.example.swipeassignment.datamodel.ProductItems"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="Product Image"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{product.image}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{product.product_name}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintTop_toTopOf="@id/productImage"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:id="@+id/productType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{product.product_type}"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/productName" />
+
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`₹ ` + String.valueOf(product.price)}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#2F9087"
+                app:layout_constraintStart_toStartOf="@id/productType"
+                app:layout_constraintTop_toBottomOf="@id/productType"
+                android:layout_marginTop="4dp"/>
+
+
+            <TextView
+                android:id="@+id/productTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Tax: ` + String.valueOf(product.tax) + `%`}"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_red_dark"
+                app:layout_constraintStart_toStartOf="@id/productPrice"
+                app:layout_constraintTop_toBottomOf="@id/productPrice"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

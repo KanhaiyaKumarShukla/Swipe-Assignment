@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.swipeassignment.viewmodel.ProductViewModel" />
+        <variable
+            name="product"
+            type="com.example.swipeassignment.datamodel.ProductItems" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:src="@drawable/add_img"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:background="@android:color/darker_gray"
+        android:padding="8dp"
+        android:layout_marginVertical="7dp"/>
+
+
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter product name"
+        android:text="@{product.product_name}"
+        android:inputType="text"
+        android:layout_marginVertical="7dp"/>
+
+    <EditText
+        android:id="@+id/etProductPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter price"
+        android:text="@{product.price}"
+        android:inputType="numberDecimal"
+        android:layout_marginVertical="7dp"/>
+    <EditText
+        android:id="@+id/etProductTax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter tax (%)"
+        android:text="@{product.tax}"
+        android:inputType="numberDecimal"
+        android:layout_marginVertical="7dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerProductType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/btnPostProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Product"
+        android:layout_marginVertical="10dp"
+
+        />
+</LinearLayout>
+</layout>
